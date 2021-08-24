@@ -22,3 +22,4 @@ C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\x64\Release\net48\Mi
 C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\x64\Release\net48\Milestone_Wpf.csproj.CopyComplete
 C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\x64\Release\net48\Milestone_Wpf.exe
 C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\x64\Release\net48\Milestone_Wpf.pdb
+C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\x64\Release\net48\Milestone_Wpf.csproj.AssemblyReference.cache
