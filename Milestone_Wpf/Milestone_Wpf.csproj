@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64</Platforms>
+    <ApplicationIcon>analytics.ico</ApplicationIcon>
+    <StartupObject>Milestone_Wpf.App</StartupObject>
+    <SignAssembly>true</SignAssembly>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="scripts\bootstrap.min.css" />
+    <None Remove="scripts\plotly-2.3.0.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="scripts\bootstrap.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="scripts\plotly-2.3.0.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LinqToExcel" Version="1.11.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>
