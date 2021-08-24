@@ -2,10 +2,10 @@
 {
     public class JSONData
     {
-        public int Year { get; set; }
-        public int Month { get; set; }
-        public string EngineeringCenterCode { get; set; }
-        public string GPID { get; set; }
-        public ChartData ChartData { get; set; }
+        public int Y { get; set; }
+        public int M { get; set; }
+        public string Ecc { get; set; }
+        public string Gpid { get; set; }
+        public ChartData Cd { get; set; }
     }
 }

@@ -14,50 +14,29 @@ namespace Milestone_Wpf
 {
     public partial class MainWindow : Window
     {
-        private static readonly string WorkSheetName = "Raw Data Milestones";
         private static readonly string ChartName = "MilestoneChart";
         private static readonly List<string> ScriptFileNames = new List<string>() { "bootstrap.min.css", "plotly-2.3.0.min.js" };
-
+        private static readonly string WorkSheetName = "Raw Data Milestones";
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void BtnOpenFiles_Click(object sender, RoutedEventArgs e)
+        private static string CopyScripts(string milestoneDirName)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog
+            string scriptsDirName = $@"{milestoneDirName}\Scripts";
+            if (!Directory.Exists(scriptsDirName))
             {
-                Multiselect = true,
-                Filter = "Excel Binary Workbooks (.xlsb)| *.xlsb",
-                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-            };
-            if (openFileDialog.ShowDialog() == true)
+                _ = Directory.CreateDirectory(scriptsDirName);
+            }
+            ScriptFileNames.ForEach(scriptFileName =>
             {
-                foreach (string filePath in openFileDialog.FileNames)
+                if (!File.Exists($@"{scriptsDirName}\{scriptFileName}"))
                 {
-                    ProcessFile(filePath);
+                    File.Copy($@"scripts\{scriptFileName}", $@"{scriptsDirName}\{scriptFileName}", true);
                 }
-            }
-        }
-
-        private void ProcessFile(string filePath)
-        {
-            try
-            {
-                (string fileName, string directory) = GetFileInfo(filePath);
-                Log($"Loading {fileName}");
-                List<JSONData> jSONDatas = CreateChartData(LoadExcel(filePath));
-                string json = CreateJSON(jSONDatas);
-                //File.WriteAllText($@"{directory}\data_{DateTime.Now:dd_MM_yy_HH_mm}.json", json);
-                string html = CreateHTML(fileName, json);
-                string htmlFilePath = CreateOutputDirectoryAndFile(html, directory);
-                Log($@"Opening {htmlFilePath}");
-                OpenHTML(htmlFilePath);
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
+            });
+            return scriptsDirName;
         }
 
         private static List<JSONData> CreateChartData(IOrderedEnumerable<GroupedData> groupedDatas)
@@ -84,61 +63,21 @@ namespace Milestone_Wpf
 
                 jSONDatas.Add(new JSONData
                 {
-                    Year = dtf.Year,
-                    Month = dtf.Month,
-                    EngineeringCenterCode = dtf.EngineeringCenterCode,
-                    GPID = dtf.GPID,
-                    ChartData = new ChartData
+                    Y = dtf.Year,
+                    M = dtf.Month,
+                    Ecc = dtf.EngineeringCenterCode,
+                    Gpid = dtf.GPID,
+                    Cd = new ChartData
                     {
-                        Milestone_Text = hoverText != string.Empty ? hoverText : string.Empty,
-                        Milestone_Number = milestoneNumber != default ? milestoneNumber : default,
-                        RTO_Y = sumRTO != default ? sumRTO : default,
-                        WorkloadmthGPID_Y = sumWorkloadmthGPID != default ? sumWorkloadmthGPID : default
+                        Mt = hoverText != string.Empty ? hoverText : string.Empty,
+                        Mn = milestoneNumber != default ? milestoneNumber : default,
+                        Y1 = sumRTO != default ? sumRTO : default,
+                        Y2 = sumWorkloadmthGPID != default ? sumWorkloadmthGPID : default
                     }
                 });
             }
 
             return jSONDatas;
-        }
-
-        private static void OpenHTML(string htmlFilePath) => _ = Process.Start($@"{htmlFilePath}");
-
-        private static string CopyScripts(string milestoneDirName)
-        {
-            string scriptsDirName = $@"{milestoneDirName}\Scripts";
-            if (!Directory.Exists(scriptsDirName))
-            {
-                _ = Directory.CreateDirectory(scriptsDirName);
-            }
-            ScriptFileNames.ForEach(scriptFileName =>
-            {
-                if (!File.Exists($@"{scriptsDirName}\{scriptFileName}"))
-                {
-                    File.Copy($@"scripts\{scriptFileName}", $@"{scriptsDirName}\{scriptFileName}", true);
-                }
-            });
-            return scriptsDirName;
-        }
-
-        private static string CreateMilestoneDirectory(string directory)
-        {
-            string milestoneDirName = $@"{directory}\MileStone";
-            if (!Directory.Exists(milestoneDirName))
-            {
-                _ = Directory.CreateDirectory(milestoneDirName);
-            }
-            return milestoneDirName;
-        }
-
-        private static void CreateHTMLFile(string html, string milestoneDirName, string htmlFileName) => File.WriteAllText($@"{milestoneDirName}\{htmlFileName}", html);
-
-        private static string CreateOutputDirectoryAndFile(string html, string directory)
-        {
-            string milestoneDirName = CreateMilestoneDirectory(directory);
-            _ = CopyScripts(milestoneDirName);
-            string htmlFileName = $@"{ChartName}_{DateTime.Now:dd_MM_yy_HH_mm}.html";
-            CreateHTMLFile(html, milestoneDirName, htmlFileName);
-            return $@"{milestoneDirName}\{htmlFileName}";
         }
 
         private static string CreateHTML(string fileName, string json)
@@ -278,17 +217,17 @@ namespace Milestone_Wpf
             keys = JSON.parse(json);
             keys.shift();
             keys.forEach(key => {
-                if (!(Years.includes(key.Year))) {
-                    Years.push(key.Year);
+                if (!(Years.includes(key.Y))) {
+                    Years.push(key.Y);
                 }
-                if (!(Months.includes(key.Month))) {
-                    Months.push(key.Month);
+                if (!(Months.includes(key.M))) {
+                    Months.push(key.M);
                 }
-                if (!(EngineeringCenterCodes.includes(key.EngineeringCenterCode))) {
-                    EngineeringCenterCodes.push(key.EngineeringCenterCode);
+                if (!(EngineeringCenterCodes.includes(key.Ecc))) {
+                    EngineeringCenterCodes.push(key.Ecc);
                 }
-                if (!(GPIDs.includes(key.GPID))) {
-                    GPIDs.push(key.GPID);
+                if (!(GPIDs.includes(key.Gpid))) {
+                    GPIDs.push(key.Gpid);
                 }
             });
             var yearddb = document.getElementById('Year');
@@ -348,20 +287,20 @@ namespace Milestone_Wpf
                     var sumWorkloadmthGPID = 0.0;
                     keys
                         .filter(key =>
-                            (JSON.stringify(key.Year) === JSON.stringify(year)) &&
-                            (JSON.stringify(key.Month) === JSON.stringify(month)) &&
-                            (EngineeringCenterCodes.includes(key.EngineeringCenterCode)) &&
-                            (GPIDs.includes(key.GPID)))
+                            (JSON.stringify(key.Y) === JSON.stringify(year)) &&
+                            (JSON.stringify(key.M) === JSON.stringify(month)) &&
+                            (EngineeringCenterCodes.includes(key.Ecc)) &&
+                            (GPIDs.includes(key.Gpid)))
                         .forEach(dtf => {
-                            if (dtf.ChartData.Milestone_Text !== """") {
-                                hoverText += dtf.ChartData.Milestone_Text;
-                                milestoneNumber += dtf.ChartData.Milestone_Number;
+                            if (dtf.Cd.Mt !== """") {
+                                hoverText += dtf.Cd.Mt;
+                                milestoneNumber += dtf.Cd.Mn;
                             }
-                            if (dtf.ChartData.RTO_Y !== 0.0) {
-                                sumRTO += dtf.ChartData.RTO_Y;
+                            if (dtf.Cd.Y1 !== 0.0) {
+                                sumRTO += dtf.Cd.Y1;
                             }
-                            if (dtf.ChartData.WorkloadmthGPID_Y !== 0.0) {
-                                sumWorkloadmthGPID += dtf.ChartData.WorkloadmthGPID_Y;
+                            if (dtf.Cd.Y2 !== 0.0) {
+                                sumWorkloadmthGPID += dtf.Cd.Y2;
                             }
                         });
                     if (hoverText !== """") {
@@ -490,7 +429,30 @@ namespace Milestone_Wpf
             return html.ToString();
         }
 
+        private static void CreateHTMLFile(string html, string milestoneDirName, string htmlFileName) => File.WriteAllText($@"{milestoneDirName}\{htmlFileName}", html);
+
         private static string CreateJSON(List<JSONData> jSONDatas) => JsonConvert.SerializeObject(jSONDatas);
+
+        private static string CreateMilestoneDirectory(string directory)
+        {
+            string milestoneDirName = $@"{directory}\MileStone";
+            if (!Directory.Exists(milestoneDirName))
+            {
+                _ = Directory.CreateDirectory(milestoneDirName);
+            }
+            return milestoneDirName;
+        }
+
+        private static string CreateOutputDirectoryAndFile(string html, string directory)
+        {
+            string milestoneDirName = CreateMilestoneDirectory(directory);
+            _ = CopyScripts(milestoneDirName);
+            string htmlFileName = $@"{ChartName}_{DateTime.Now:dd_MM_yy_HH_mm}.html";
+            CreateHTMLFile(html, milestoneDirName, htmlFileName);
+            return $@"{milestoneDirName}\{htmlFileName}";
+        }
+
+        private static (string fileName, string directory) GetFileInfo(string filePath) => (Path.GetFileName(filePath), Path.GetDirectoryName(filePath));
 
         private static IOrderedEnumerable<GroupedData> LoadExcel(string filePath)
         {
@@ -520,8 +482,45 @@ namespace Milestone_Wpf
                .ThenByDescending(x => x?.Data.Count);
         }
 
-        private static (string fileName, string directory) GetFileInfo(string filePath) => (Path.GetFileName(filePath), Path.GetDirectoryName(filePath));
+        private static void OpenHTML(string htmlFilePath) => _ = Process.Start($@"{htmlFilePath}");
+
+        private void BtnOpenFiles_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Multiselect = true,
+                Filter = "Excel Binary Workbooks (.xlsb)| *.xlsb",
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            };
+            if (openFileDialog.ShowDialog() == true)
+            {
+                foreach (string filePath in openFileDialog.FileNames)
+                {
+                    ProcessFile(filePath);
+                }
+            }
+        }
 
         private void Log(string message) => _ = logList.Items.Add(message);
+
+        private void ProcessFile(string filePath)
+        {
+            try
+            {
+                (string fileName, string directory) = GetFileInfo(filePath);
+                Log($"Loading {fileName}");
+                List<JSONData> jSONDatas = CreateChartData(LoadExcel(filePath));
+                string json = CreateJSON(jSONDatas);
+                //File.WriteAllText($@"{directory}\data_{DateTime.Now:dd_MM_yy_HH_mm}.json", json);
+                string html = CreateHTML(fileName, json);
+                string htmlFilePath = CreateOutputDirectoryAndFile(html, directory);
+                Log($@"Opening {htmlFilePath}");
+                OpenHTML(htmlFilePath);
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
     }
 }

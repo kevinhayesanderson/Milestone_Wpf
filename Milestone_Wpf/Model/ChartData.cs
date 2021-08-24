@@ -2,9 +2,9 @@
 {
     public class ChartData
     {
-        public string Milestone_Text { get; set; }
-        public int Milestone_Number { get; set; }
-        public double RTO_Y { get; set; }
-        public double WorkloadmthGPID_Y { get; set; }
+        public string Mt { get; set; }
+        public int Mn { get; set; }
+        public double Y1 { get; set; }
+        public double Y2 { get; set; }
     }
 }
