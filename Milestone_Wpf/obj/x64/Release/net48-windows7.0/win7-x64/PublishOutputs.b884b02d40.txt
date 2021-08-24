@@ -1,0 +1,10 @@
+C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48-windows7.0\publish\scripts\bootstrap.min.css
+C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48-windows7.0\publish\scripts\plotly-2.3.0.min.js
+C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48-windows7.0\publish\Milestone_Wpf.exe
+C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48-windows7.0\publish\Milestone_Wpf.exe.config
+C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48-windows7.0\publish\Milestone_Wpf.pdb
+C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48-windows7.0\publish\LinqToExcel.dll
+C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48-windows7.0\publish\Remotion.Data.Linq.dll
+C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48-windows7.0\publish\Remotion.Interfaces.dll
+C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48-windows7.0\publish\Remotion.dll
+C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48-windows7.0\publish\Newtonsoft.Json.dll
