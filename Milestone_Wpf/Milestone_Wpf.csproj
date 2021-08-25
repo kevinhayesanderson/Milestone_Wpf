@@ -9,6 +9,9 @@
     <StartupObject>Milestone_Wpf.App</StartupObject>
     <SignAssembly>true</SignAssembly>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <Authors>ACS</Authors>
+    <Product>Milestone</Product>
   </PropertyGroup>
 
   <ItemGroup>

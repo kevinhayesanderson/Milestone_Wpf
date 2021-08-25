@@ -11,11 +11,11 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Milestone_Wpf")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("ACS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("Milestone_Wpf")]
+[assembly: System.Reflection.AssemblyProductAttribute("Milestone")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Milestone_Wpf")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
