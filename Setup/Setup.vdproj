@@ -19,6 +19,12 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_395B82F9702F43EDB0A09DC78C9ADBE4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -37,6 +43,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -53,6 +67,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -74,6 +96,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_395B82F9702F43EDB0A09DC78C9ADBE4"
+            {
+            "SourcePath" = "8:..\\Milestone_Wpf\\analytics.ico"
+            "TargetName" = "8:analytics.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_91043C6076F2433A849975C926F838E5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -262,7 +304,7 @@
             "Target" = "8:_03FE01BEBF0F459DAC04FB0F6D4715FB"
             "Folder" = "8:_0123BC1585AD442AB9C4CCB1A421C832"
             "WorkingFolder" = "8:_91043C6076F2433A849975C926F838E5"
-            "Icon" = "8:"
+            "Icon" = "8:_395B82F9702F43EDB0A09DC78C9ADBE4"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C3CE6C4EAC9D4AD0A3F392910A086A65"
@@ -276,7 +318,7 @@
             "Target" = "8:_03FE01BEBF0F459DAC04FB0F6D4715FB"
             "Folder" = "8:_483433DD27C2428693039B6A54F4E935"
             "WorkingFolder" = "8:_91043C6076F2433A849975C926F838E5"
-            "Icon" = "8:"
+            "Icon" = "8:_395B82F9702F43EDB0A09DC78C9ADBE4"
             "Feature" = "8:"
             }
         }
