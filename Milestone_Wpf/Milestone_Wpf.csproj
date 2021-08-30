@@ -12,6 +12,7 @@
     <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
     <Authors>ACS</Authors>
     <Product>Milestone</Product>
+    <AssemblyOriginatorKeyFile>KeyFile.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
