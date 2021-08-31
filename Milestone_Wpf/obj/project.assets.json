@@ -26,32 +26,6 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       }
-    },
-    ".NETFramework,Version=v4.8/win7-x64": {
-      "LinqToExcel/1.11.0": {
-        "type": "package",
-        "compile": {
-          "lib/LinqToExcel.dll": {},
-          "lib/Remotion.Data.Linq.dll": {},
-          "lib/Remotion.Interfaces.dll": {},
-          "lib/Remotion.dll": {}
-        },
-        "runtime": {
-          "lib/LinqToExcel.dll": {},
-          "lib/Remotion.Data.Linq.dll": {},
-          "lib/Remotion.Interfaces.dll": {},
-          "lib/Remotion.dll": {}
-        }
-      },
-      "Newtonsoft.Json/13.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
     }
   },
   "libraries": {
@@ -159,11 +133,6 @@
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
-      }
-    },
-    "runtimes": {
-      "win7-x64": {
-        "#import": []
       }
     }
   }
