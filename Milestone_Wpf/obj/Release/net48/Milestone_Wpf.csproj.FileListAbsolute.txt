@@ -8,7 +8,6 @@ C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48\Remoti
 C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48\Remotion.Interfaces.dll
 C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48\Remotion.dll
 C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\bin\Release\net48\Newtonsoft.Json.dll
-C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\Release\net48\Milestone_Wpf.csproj.AssemblyReference.cache
 C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\Release\net48\MainWindow.g.cs
 C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\Release\net48\App.g.cs
 C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\Release\net48\Milestone_Wpf_Content.g.cs
@@ -23,3 +22,4 @@ C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\Release\net48\Milest
 C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\Release\net48\Milestone_Wpf.csproj.CopyComplete
 C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\Release\net48\Milestone_Wpf.exe
 C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\Release\net48\Milestone_Wpf.pdb
+C:\Users\kevin\source\repos\Milestone_Wpf\Milestone_Wpf\obj\Release\net48\Milestone_Wpf.csproj.AssemblyReference.cache
